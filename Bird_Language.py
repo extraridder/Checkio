@@ -42,7 +42,7 @@ def translate(phrase):
             if i == (len(each) - 1):
                 print("last element st",i, each[i], len(each), each, out)
                 out += " "
-                print("last eleent end",i, each[i], len(each), each, out)
+                print("last element end",i, each[i], len(each), each, out)
             '''
     print(out)
 
