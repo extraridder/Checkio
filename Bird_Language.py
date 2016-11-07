@@ -6,6 +6,7 @@ def translate(phrase):
     out = ""
     for each in words:
         print("Start each word",  len(each), each, out)
+
         for i in range(0, len(each)):
             if i == 0:
                 if each[i] not in VOWELS and each[i + 1] in VOWELS:
