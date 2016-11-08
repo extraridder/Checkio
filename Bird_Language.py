@@ -35,7 +35,7 @@ def translate(phrase):
                         out += each[i]
                 elif (i > 0) and i < len(each) - 3:
                     if each[i] not in VOWELS and each[i+1] in VOWELS:
-                        #print("condition active")
+                        #print("condition active")dfdfh
                         out += each[i]
                     elif each[i] in VOWELS and each[i] == each[i+1] == each[i+2] and each[i-1] not in VOWELS:
                         print("condition active")
