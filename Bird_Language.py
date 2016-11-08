@@ -26,6 +26,7 @@ def translate(phrase):
                     out += each[i]
         else:
             for i in range(0, len(each)):
+                print(i,each[i])
                 if i == 0:
                     if each[i] not in VOWELS and each[i+1] in VOWELS:
                         #print("condition active")
@@ -34,15 +35,21 @@ def translate(phrase):
                         #print("condition active")
                         out += each[i]
                 elif (i > 0) and i < len(each) - 3:
+                    print("i > 0 i < len -3")
+                    print(each[i] in VOWELS, each[i] == each[i+1] == each[i+2],each[i-1] not in VOWELS )
                     if each[i] not in VOWELS and each[i+1] in VOWELS:
-                        #print("condition active")dfdfh
+                        print("condition active")
                         out += each[i]
-                    elif each[i] in VOWELS and each[i] == each[i+1] == each[i+2] and each[i-1] not in VOWELS:
+                    elif each[i] in VOWELS and each[i] == each[i+1] == each[i+2] and each[i-1] in VOWELS:
                         print("condition active")
                         out += each[i]
                 elif i >= len(each) - 3:
+                    print("i >= len -3")
                     if each[i] not in VOWELS and each[i+1] in VOWELS:
                         #print("condition active")
+                        out += each[i]
+                    elif each[i] in VOWELS and each[i] == each[i+1] == each[i+2] and each[i-1] in VOWELS:
+                        print("condition active")
                         out += each[i]
 
         out += " "
@@ -54,7 +61,7 @@ def translate(phrase):
     return phrase
 
 #translate("yyyooouuu")
-translate("hoooowe yyyooouuu duoooiiine")
+translate("hoooowe yyyooouuueee duoooiiine")
 '''
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
