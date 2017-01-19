@@ -1,18 +1,18 @@
 import math
 def checkio(height, width):
-    pi = 3.14159265359
-    if height/2 == width/2:
-        S = 4 * pi * (height/2) ** 2
-        V = (4/3) * pi * (height/2) ** 3
-    elif height/2 > width/2:
-        e = (- (width/2) ** 2 + (height/2)** 2) ** 0.5 / (width/2)
-        print(e)
-        S = 2 * pi * (height/2) * (height/2 + (width/2 * math.asin(e)/e))
-        V = (4 / 3) * pi * (width/2) * (height / 2) ** 2
+    pi = math.pi
+    e = 2.71828183
+    a, b = width/2,height/2
+    if b == a:
+        v = 4 * pi * a ** 3 / 3
+        s = 4 * pi * a ** 2
+    elif b > a:
+        print(math.log(e))
+        v
     elif height/2 < width/2:
         pass
-    print(round(V,2),round(S,2))
-    #return [V, S]
+    #print(round(v,2),round(s,2))
+    # return [v, s]
 
 '''
 #These "asserts" using only for self-checking and not necessary for auto-testing

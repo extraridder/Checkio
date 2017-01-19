@@ -10,6 +10,8 @@ def checkio(text):
         a = text.split(" ")
     elif "," in text:
         a = text.split(",")
+    elif "." in text:
+        a = text.split(".")
     for each in a:
         print("<=====================================================>")
         print(each)

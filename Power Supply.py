@@ -8,21 +8,21 @@ def power_supply(network, power_plants):
         print(list(set(output)))
     else:
         plants = list(power_plants.keys())
-        print(plants)
+        print("Название заводов", plants)
         network_array = network
-        result_dict = dict()
+        result_list = list()
         for each in network_array:
             for i in plants:
+                print(each,i)
                 if i in each:
-                    if result_dict[i]:
-                        result_dict[i] = result_dict[i]
-                    else:
-                        result_dict[i] = each[0] if i != each[0] else each[1]
-        print("RESULT_DICT",result_dict)
-
-
-
-    print("Конец",power_plants)
+                    print("%s in %s" % (i,each))
+                    #plants[i] += str("-" + each[0] if each[0] != i else each[1])
+                    #print(plants.index(i))
+                    plants[plants.index(i)] += str("-" + each[0] if each[0] != i else "-" + each[1])
+                    print("middle plantrs",plants)
+            #network_array.pop(network_array.index(each))
+    print("Конец", plants)
+    #print("Конец",power_plants)
     return set([])
 '''
 if __name__ == '__main__':
