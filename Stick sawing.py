@@ -13,9 +13,25 @@ def checkio(number):
     a = tringle_number(number)
     print(a)
     result_list = list()
+    for each in a:
+        sum = each
+        temp_list = list()
+        temp_list.append(each)
+        print(a.index(each),temp_list)
+        for i in range(a.index(each)+1,len(a)):
+            if sum >= number:
+                print("sum",sum)
+                if sum == number:
+                    result_list.append(temp_list)
+                break
+            else:
+                sum += a[i]
+                temp_list.append(a[i])
+        print("END of loop",each,temp_list)
 
     print(result_list)
-    return [number // 2, number - number // 2]
+    print(max(result_list,key=len) if len(result_list) > 0 else [])
+    return max(result_list,key=len) if len(result_list) > 0 else []
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 '''
@@ -25,4 +41,4 @@ if __name__ == '__main__':
     assert checkio(225) == [105, 120], "1st example"
     assert checkio(882) == [], "1st example"
 '''
-checkio(371)
+checkio(100)
