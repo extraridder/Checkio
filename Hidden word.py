@@ -1,8 +1,12 @@
 def checkio(text, word):
-    print(text,word,sep="\n\n")
-    print(text.replace(" ","").lower().split("\n"))
+    #print(text,word,sep="\n\n")
     a = text.replace(" ","").lower().split("\n")
+    print(a)
     print(a[0],word[0],word[0] in a[0],(a[1].index(str(word[0])) + 1) if word[0] in a[1] else "not found")
+    for each in a:
+        i = a.index(each)+1
+        if word[0] in a[i-1]:
+            pass
     #print(a[0].index(word[0]))
     return [1, 1, 1, 4]
 
@@ -27,3 +31,4 @@ checkio("""DREAMING of apples on a wall,
 And dreaming often, dear,
 I dreamed that, if I counted all,
 -How many would appear?""", "ten")
+
