@@ -5,11 +5,17 @@ def min(*args, **kwargs):
 
 
 def max(*args, **kwargs):
+    max = args[0]
+    print(min)
+    for arg in args:
+        if max < arg:
+            max = arg
+    print(max)
     key = kwargs.get("key", None)
     print(key)
     return None
 
-
+'''
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
     assert max(3, 2) == 3, "Simple case max"
@@ -18,3 +24,6 @@ if __name__ == '__main__':
     assert min("hello") == "e", "From string"
     assert max(2.2, 5.6, 5.9, key=int) == 5.6, "Two maximal items"
     assert min([[1, 2], [3, 4], [9, 0]], key=lambda x: x[1]) == [9, 0], "lambda key"
+'''
+
+max(3,2)
