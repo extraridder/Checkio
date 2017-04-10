@@ -18,15 +18,37 @@ def max(*args, **kwargs):
         print("key",kwargs)
         f = kwargs['key']
     if args:
-        print(type(args))
-        if args[0] > args[1]:
-            print("ASDf")
-        for i in args:
-            print(i)
-            for each in i:
-                pass
-                #print(f(each))
-
+        print(args, type(args))
+        if isinstance(args,tuple): tmp = args[0]
+        if kwargs:
+            tmp_list = list()
+            for each in tmp:
+                tmp_list.append(f(each))
+                print(f(each))
+            print(tmp_list)
+            v_s = tmp_list[0]
+            k_s = 0
+            for k,v in enumerate(tmp_list):
+                if k == 0: continue
+                if v > v_s: v_s = v
+            print(v_s)
+        else:
+            print(args)
+            if isinstance(args, tuple):
+                tmp = args[0]
+                v_s = args[0]
+                k_s = 0
+                for k, v in enumerate(tmp):
+                    if k == 0: continue
+                    if v > v_s: v_s = v
+                print(v_s)
+            else:
+                v_s = args[0]
+                k_s = 0
+                for k,v in enumerate(args):
+                    if k == 0: continue
+                    if v > v_s: v_s = v
+                print(v_s)
 
 '''
 if args:
@@ -68,12 +90,12 @@ if __name__ == '__main__':
     assert max(2.2, 5.6, 5.9, key=int) == 5.6, "Two maximal items"
     assert min([[1, 2], [3, 4], [9, 0]], key=lambda x: x[1]) == [9, 0], "lambda key"
 '''
-#max(3, 2,1,2,3,4,5,6,7)
-#min(3, 2,1,2,3,4,5,6,7,-1)
-#max([1, 2, 0, 3, 4])
-#max([[1, 2], [3, 4], [9, 0]], key=1)
+max(3, 2,1,2,3,4,5,6,7)
+max(3, 2,1,2,3,4,5,6,7,-1)
+max([1, 2, 0, 3, 4])
 #max([[1, 2], [3, 4], [9, 0]], key=lambda x: x[1])
-max("hello")
+#max([[1, 2], [3, 4], [9, 0]], key=lambda x: x[1])
+#max("hello")
 #a = [1, 2]
 #f = lambda x: x[2]
 #print(f(a))
