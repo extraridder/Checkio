@@ -1,25 +1,36 @@
 VOWELS = "AEIOUY"
 CONSONANTS = "BCDFGHJKLMNPQRSTVWXZ"
 DIGITS = '123456789'
-import itertools
+
 
 def checkio(text):
     # print(text)
     a = list()
     c = 0
-    if " " in text: a = text.split(" ")
-    elif "," in text:  a = text.split(",")
-    elif "." in text:  a = text.split(".")
+    text = text.replace(".",",").replace(" ",",")
+    if "," in text: a = text.split(",")
     for each in a:
         print("<=====================================================>")
         print(each)
         if list(set(each).intersection(DIGITS)): continue
         tmp_iter = iter(list(each))
+        len_iter = iter(range(len(each)))
+        tmp_c = 0
         while True:
+            print(tmp_c)
+            if tmp_c > 1 or tmp_c < -1:
+                break
             try:
-                print(tmp_iter.__next__())
+                print(len_iter.__next__(),tmp_iter.__next__())
+                if tmp_iter.__next__().upper() in VOWELS:
+                    print("V")
+                    tmp_c += 1
+                if tmp_iter.__next__().upper() in CONSONANTS:
+                    print("not V")
+                    tmp_c -= 1
 
-            except StopIteration as e: break
+            except StopIteration as e:
+                break
 
 
     print(c)
