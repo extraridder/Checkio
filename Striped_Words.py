@@ -26,7 +26,7 @@ def checkio(text):
                     err += 1
                 i += 2
             if err == 0:
-                c += 1
+                c += 10
         else:
             continue
     print(c)
