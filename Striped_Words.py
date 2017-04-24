@@ -1,40 +1,68 @@
 VOWELS = "AEIOUY"
 CONSONANTS = "BCDFGHJKLMNPQRSTVWXZ"
+DIGITS = '123456789'
 
 
 def checkio(text):
     # print(text)
     a = list()
     c = 0
-    if " " in text:
-        a = text.split(" ")
-    elif "," in text:
-        a = text.split(",")
-    elif "." in text:
-        a = text.split(".")
+    text = text.replace(".",",").replace(" ",",")
+    if "," in text: a = text.split(",")
     for each in a:
         print("<=====================================================>")
         print(each)
-        if len(each) % 2 == 0:
-            i = 0
-            err = 0
-            while i >= len(each) - 1:
-                #print((each[i].upper() in CONSONANTS and each[i + 1].upper() in VOWELS) == True ,(each[i].upper() in VOWELS and each[i + 1].upper() in CONSONANTS) == True)
-                if (each[i].upper() in CONSONANTS and each[i + 1].upper() in VOWELS) or (each[i].upper() in VOWELS and each[i + 1].upper() in CONSONANTS):
-                    pass
-                else:
-                    err += 1
-                i += 2
-            if err == 0:
-                c += 10
-        else:
-            continue
+        if list(set(each).intersection(DIGITS)): continue
+        tmp_iter = iter(list(each))
+        len_iter = iter(range(len(each)))
+        tmp_c = 0
+        err = 0
+        for each in tmp_iter:
+            print(tmp_c,err)
+            if tmp_c > 1 or tmp_c < -1:
+                err = 1
+            print(each,type(each))
+            if each.upper() in VOWELS:
+                print("V")
+                tmp_c += 1
+            elif each.upper() in CONSONANTS:
+                print("not V")
+                tmp_c -= 1
+        print(tmp_c)
+        print(c)
+        if err != 0:
+            c += 1
+        print(c)
+        '''
+        while True:
+            print(tmp_c)
+            if tmp_c > 1 or tmp_c < -1:
+                break
+            try:
+                #print(len_iter.__next__(),tmp_iter.__next__())
+                var = tmp_iter.__next__()
+                if var.upper() in VOWELS:
+                    print("V")
+                    tmp_c += 1
+                elif var.upper() in CONSONANTS:
+                    print("not V")
+                    tmp_c -= 1
+
+
+            except StopIteration as e:
+                break
+
+            print("tmp_c", tmp_c)
+        '''
+
+
+
     print(c)
 
 #checkio("My name is ...")
 #checkio("Hello world")
-checkio("A quantity of striped words.")
-#checkio("Dog,cat,mouse,bird.Human.")
+#checkio("A quantity of striped words.")
+checkio("Dog,cat,mouse,bird.Human.")
 
 '''
 #These "asserts" using only for self-checking and not necessary for auto-testing
@@ -45,3 +73,16 @@ if __name__ == '__main__':
     assert checkio("Dog,cat,mouse,bird.Human.") == 3, "Dog, cat and human"
 '''
 
+'''
+i = 0
+            err = 0
+            while i >= len(each) - 1:
+                #print((each[i].upper() in CONSONANTS and each[i + 1].upper() in VOWELS) == True ,(each[i].upper() in VOWELS and each[i + 1].upper() in CONSONANTS) == True)
+                if (each[i].upper() in CONSONANTS and each[i + 1].upper() in VOWELS) or (each[i].upper() in VOWELS and each[i + 1].upper() in CONSONANTS):
+                    pass
+                else:
+                    err += 1
+                i += 2
+            if err == 0:
+                c += 1
+'''
